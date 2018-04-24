@@ -1,6 +1,9 @@
 package com.residentevil.redbg;
 
+import java.util.List;
 import java.util.Map;
+
+import com.residentevil.redbg.cards.Card;
 
 public class Scenario {
 	private Map<Integer, Pile> _pilesOrder;

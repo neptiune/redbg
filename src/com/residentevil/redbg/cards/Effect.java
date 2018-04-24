@@ -1,6 +1,9 @@
-package com.residentevil.redbg;
+package com.residentevil.redbg.cards;
 
-public final class Efects {
+import com.residentevil.redbg.Game;
+import com.residentevil.redbg.Player;
+
+public final class Effect {
 	
 	//Se debe de activar el efecto cuando Wesker ataca a un personaje o explora la mansion.
 	public static void ch001Lvl01(Player host) {

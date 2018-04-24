@@ -1,4 +1,4 @@
-package com.residentevil.redbg;
+package com.residentevil.redbg.cards;
 
 public class Token extends Card {
 

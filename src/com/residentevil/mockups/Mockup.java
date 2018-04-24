@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.residentevil.redbg.*;
+import com.residentevil.redbg.cards.MainCharacter;
 public class Mockup {
 
 	public static void main(String[] args) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.residentevil.redbg.cards.MainCharacter;
 import com.residentievil.utilities.*;
 
 public class Game {
@@ -42,9 +43,9 @@ public class Game {
 			playersNumber = Constants.MAX_PLAYERS;
 		}
 		
-		for (int i = 0; i < playersNumber; i++) {
-			MainCharacter character = this.get_mode().get_assignOrder().get(i + 1);
-			Player player = new Player(i, "Player " + i, 0, 0, 0, character, 0);
+		for (int i = 1; i < playersNumber; i++) {
+			MainCharacter character = this.get_mode().get_assignCharactersOrder().get(i);
+			Player player = new Player(i, "Player " + i, 0, 0, 0, character, 0, new PlayerBoard());
 			this._activePlayers.add(player);
 		}
 		

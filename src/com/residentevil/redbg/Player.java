@@ -1,5 +1,11 @@
 package com.residentevil.redbg;
 
+import java.util.List;
+
+import com.residentevil.redbg.cards.Action;
+import com.residentevil.redbg.cards.Card;
+import com.residentevil.redbg.cards.MainCharacter;
+
 public class Player {
 
 	private Integer _id;
@@ -9,11 +15,13 @@ public class Player {
 	private Integer _explores;
 	private MainCharacter _assignedCharacter;
 	private Integer _turnOrder;
-	
+	private PlayerBoard _board;
+
 	public Player() {
 	}
 
-	public Player(Integer _id, String _name, Integer _actions, Integer _buys, Integer _explores, MainCharacter _assignedCharacter, Integer _turnOrder) {
+	public Player(Integer _id, String _name, Integer _actions, Integer _buys, Integer _explores,
+			MainCharacter _assignedCharacter, Integer _turnOrder, PlayerBoard _board) {
 		this._id = _id;
 		this._name = _name;
 		this._actions = _actions;
@@ -21,13 +29,14 @@ public class Player {
 		this._explores = _explores;
 		this._assignedCharacter = _assignedCharacter;
 		this._turnOrder = _turnOrder;
+		this._board = _board;
 	}
 
 	public Player(MainCharacter _assignedCharacter) {
 		this._assignedCharacter = _assignedCharacter;
 		this._actions = this._buys = this._explores = this._turnOrder = 0;
 	}
-	
+
 	public Integer get_id() {
 		return _id;
 	}
@@ -84,4 +93,39 @@ public class Player {
 		this._turnOrder = _turnOrder;
 	}
 
+	public PlayerBoard get_board() {
+		return _board;
+	}
+
+	public void set_board(PlayerBoard _board) {
+		this._board = _board;
+	}
+
+	public Pile buyAction(List<Action> _allowedActions, Pile _actionPile, Integer _actionKey) {
+		if (this.get_buys() > 0) {
+			int availableGold = this.get_assignedCharacter().get_gold();
+			Card tempCard = _actionPile.get_cardsList().get(_actionKey);
+			Action tempAction = new Action();
+			for (Action action : _allowedActions) {
+				if (action.get_code().equalsIgnoreCase(tempCard.get_code())) {
+					tempAction = action;
+					break;
+				}
+			}
+
+			if (availableGold >= tempAction.get_price()) {
+				this.get_board().get_discardPile().add(tempAction);
+				_actionPile.get_cardsList().remove(_actionKey);
+				this.set_buys(this.get_buys()-1);
+				Integer goldUsed = this.get_assignedCharacter().get_gold();
+				this.get_assignedCharacter().set_gold(goldUsed-1);
+			} else {
+				System.out.println("NO PUEDES COMPRAR, NO TIENES SUFICIENTE ORO");
+			}
+		} else {
+			System.out.println("NO PUEDES COMPRAR, YA NO TIENES PUNTOS DE COMPRA");
+		}
+		//Se va a regresar el mismo objeto, si la compra se hizo, hay cambios, si no, se regresa igual
+		return _actionPile;
+	}
 }

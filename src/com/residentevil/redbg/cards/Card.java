@@ -1,4 +1,4 @@
-package com.residentevil.redbg;
+package com.residentevil.redbg.cards;
 
 public class Card {
 	
@@ -14,19 +14,19 @@ public class Card {
 		this._name = _name;
 	}
 
-	public String getCode() {
+	public String get_code() {
 		return _code;
 	}
 
-	public void setCode(String code) {
+	public void set_code(String code) {
 		this._code = code;
 	}
 
-	public String getType() {
+	public String get_type() {
 		return _type;
 	}
 
-	public void setType(String type) {
+	public void set_type(String type) {
 		this._type = type;
 	}
 
