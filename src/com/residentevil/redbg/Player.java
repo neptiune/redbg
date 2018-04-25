@@ -14,27 +14,25 @@ public class Player {
 	private Integer _buys;
 	private Integer _explores;
 	private MainCharacter _assignedCharacter;
-	private Integer _turnOrder;
 	private PlayerBoard _board;
 
 	public Player() {
 	}
 
 	public Player(Integer _id, String _name, Integer _actions, Integer _buys, Integer _explores,
-			MainCharacter _assignedCharacter, Integer _turnOrder, PlayerBoard _board) {
+			MainCharacter _assignedCharacter, PlayerBoard _board) {
 		this._id = _id;
 		this._name = _name;
 		this._actions = _actions;
 		this._buys = _buys;
 		this._explores = _explores;
 		this._assignedCharacter = _assignedCharacter;
-		this._turnOrder = _turnOrder;
 		this._board = _board;
 	}
 
 	public Player(MainCharacter _assignedCharacter) {
 		this._assignedCharacter = _assignedCharacter;
-		this._actions = this._buys = this._explores = this._turnOrder = 0;
+		this._actions = this._buys = this._explores = 0;
 	}
 
 	public Integer get_id() {
@@ -83,14 +81,6 @@ public class Player {
 
 	public void set_assignedCharacter(MainCharacter _assignedCharacter) {
 		this._assignedCharacter = _assignedCharacter;
-	}
-
-	public Integer get_turnOrder() {
-		return _turnOrder;
-	}
-
-	public void set_turnOrder(Integer _turnOrder) {
-		this._turnOrder = _turnOrder;
 	}
 
 	public PlayerBoard get_board() {

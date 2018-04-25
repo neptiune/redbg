@@ -1,20 +1,15 @@
 package com.residentevil.redbg;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 import com.residentevil.redbg.cards.Action;
 import com.residentevil.redbg.cards.Ammo;
-import com.residentevil.redbg.cards.Card;
 import com.residentevil.redbg.cards.Infected;
 import com.residentevil.redbg.cards.MainCharacter;
 import com.residentevil.redbg.cards.Token;
 import com.residentevil.redbg.cards.Weapon;
-import com.residentievil.utilities.Shared;
 
+//Define las reglas
 public class GameMode {
 	
 	private String _name;
@@ -24,7 +19,6 @@ public class GameMode {
 	private List<Infected> _allowedInfecteds;
 	private List<Token> _allowedTokens;
 	private List<Weapon> _allowedWeapons;
-	private Map<Integer, MainCharacter> _assignCharactersOrder;
 	
 	public GameMode() {
 		/*this._name = "";
@@ -36,7 +30,6 @@ public class GameMode {
 		this._name = _name;
 		this._allowedCharacters = _allowedCharacters;
 		this._allowedActions = _allowedActions;
-		this._assignCharactersOrder = null;
 	}
 
 	public String get_name() {
@@ -95,17 +88,6 @@ public class GameMode {
 		this._allowedWeapons = _allowedWeapons;
 	}
 
-	public Map<Integer, MainCharacter> get_assignCharactersOrder() {
-		return _assignCharactersOrder;
-	}
-
-	public void set_assignCharactersOrder(Map<Integer, MainCharacter> _assignCharactersOrder) {
-		this._assignCharactersOrder = _assignCharactersOrder;
-	}
-
-	public void test() {
-		List<Card> tempList = new ArrayList<Card>();
-	}
 /*
 	public void sortCharacters() {
 		
@@ -148,18 +130,5 @@ public class GameMode {
 	}
 */
 
-	public void sortCharacters() {
-		int charsCount = this.get_allowedCharacters().size();
-		List<Integer> arrayList = Shared.generateRandomNumbersList(charsCount);
-		Map<Integer, MainCharacter> tempCardList = new HashMap<>();
-		
-		for (int i = 0; i < charsCount; i++) {
-			// Hace falta agregar otra lista donde estén el total de cartas permitidas
-			tempCardList.put(arrayList.get(i), this.get_allowedCharacters().get(i));
-		}
-
-		//this._assignOrder.forEach((k, v) -> System.out.println("Key: " + k + " Value: " + v.get_name()));
-		this.set_assignCharactersOrder(tempCardList);
-	}
 
 }

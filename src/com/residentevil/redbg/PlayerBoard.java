@@ -46,4 +46,6 @@ public class PlayerBoard {
 	//Metodo para revolver las cartas del inventario
 	//Metodo para asignar la mano de cartas por turno
 	//Metodos para consultar la pila de descarte
+
+	// Metodo para inicializar los tableros de los jugadores
 }
