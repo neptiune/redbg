@@ -10,8 +10,11 @@ public class Infected extends Card {
 		super();
 	}
 
-	public Infected(String _code, String _type, String _name) {
+	public Infected(String _code, String _type, String _name, Integer _health, Integer _damage, Integer _medalls) {
 		super(_code, _type, _name);
+		this._health = _health;
+		this._damage = _damage;
+		this._medalls = _medalls;
 	}
 
 	public Integer get_health() {

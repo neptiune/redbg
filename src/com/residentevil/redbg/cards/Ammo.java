@@ -2,7 +2,7 @@ package com.residentevil.redbg.cards;
 
 public class Ammo extends Card {
 
-	private Float _price;
+	private Integer _price;
 	private Integer _ammoBonus;
 	private Integer _goldBonus;
 	
@@ -10,18 +10,18 @@ public class Ammo extends Card {
 		super();
 	}
 
-	public Ammo(String _code, String _type, String _name, Float _price, Integer _ammo, Integer _gold) {
+	public Ammo(String _code, String _type, String _name, Integer _price, Integer _ammo, Integer _gold) {
 		super(_code, _type, _name);
 		this._price = _price;
 		this._ammoBonus = _ammo;
 		this._goldBonus = _gold;
 	}
 
-	public Float get_price() {
+	public Integer get_price() {
 		return _price;
 	}
 
-	public void set_price(Float _price) {
+	public void set_price(Integer _price) {
 		this._price = _price;
 	}
 
