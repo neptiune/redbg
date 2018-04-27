@@ -19,5 +19,6 @@ public class GameArea {
 	public void configGameArea() {
 		GameMode gameMode = this.get_game().get_mode();
 		
+		
 	}
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.residentevil.redbg.GameMode;
 import com.residentevil.redbg.cards.*;
 
 public class Shared {
@@ -18,6 +19,8 @@ public class Shared {
 	public static List<MainCharacter> mainCharacterList;
 	public static List<Token> tokenList;
 	public static List<Weapon> weaponList;
+	
+	public static GameMode historyMode;
 	
 	/*public static List<Card> mapActionToCard(List<Action> actionList){
 		List<Card> tempCardList = new ArrayList<Card>();

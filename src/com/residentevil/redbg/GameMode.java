@@ -5,6 +5,7 @@ import java.util.List;
 import com.residentevil.redbg.cards.Action;
 import com.residentevil.redbg.cards.Ammo;
 import com.residentevil.redbg.cards.Infected;
+import com.residentevil.redbg.cards.Item;
 import com.residentevil.redbg.cards.MainCharacter;
 import com.residentevil.redbg.cards.Token;
 import com.residentevil.redbg.cards.Weapon;
@@ -19,6 +20,7 @@ public class GameMode {
 	private List<Infected> _allowedInfecteds;
 	private List<Token> _allowedTokens;
 	private List<Weapon> _allowedWeapons;
+	private List<Item> _allowedItems;
 	
 	public GameMode() {
 		/*this._name = "";
@@ -26,11 +28,19 @@ public class GameMode {
 		this._assignOrder = new HashMap<>();*/
 	}
 	
-	public GameMode(String _name, List<MainCharacter> _allowedCharacters, List<Action> _allowedActions) {
+	public GameMode(String _name, List<MainCharacter> _allowedCharacters, List<Action> _allowedActions,
+			List<Ammo> _allowedAmmo, List<Infected> _allowedInfecteds, List<Token> _allowedTokens,
+			List<Weapon> _allowedWeapons, List<Item> _allowedItems) {
 		this._name = _name;
 		this._allowedCharacters = _allowedCharacters;
 		this._allowedActions = _allowedActions;
+		this._allowedAmmo = _allowedAmmo;
+		this._allowedInfecteds = _allowedInfecteds;
+		this._allowedTokens = _allowedTokens;
+		this._allowedWeapons = _allowedWeapons;
+		this._allowedItems = _allowedItems;
 	}
+
 
 	public String get_name() {
 		return _name;
@@ -86,6 +96,14 @@ public class GameMode {
 
 	public void set_allowedWeapons(List<Weapon> _allowedWeapons) {
 		this._allowedWeapons = _allowedWeapons;
+	}
+
+	public List<Item> get_allowedItems() {
+		return _allowedItems;
+	}
+
+	public void set_allowedItems(List<Item> _allowedItems) {
+		this._allowedItems = _allowedItems;
 	}
 
 /*
