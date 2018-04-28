@@ -5,15 +5,18 @@ public class Game {
 
 	private GameMode _mode;
 	private Scenario _scenario;
+	private Difficulty _difficulty;
 	
 	public Game() {
 		this._mode = new GameMode();
 		this._scenario = new Scenario();
+		this._difficulty = new Difficulty();
 	}
 
-	public Game(GameMode _mode, Scenario _scenario) {
+	public Game(GameMode _mode, Scenario _scenario, Difficulty _difficulty) {
 		this._mode = _mode;
 		this._scenario = _scenario;
+		this._difficulty = _difficulty;
 	}
 
 	public GameMode get_mode() {
@@ -30,6 +33,14 @@ public class Game {
 
 	public void set_scenario(Scenario _scenario) {
 		this._scenario = _scenario;
+	}
+
+	public Difficulty get_difficulty() {
+		return _difficulty;
+	}
+
+	public void set_difficulty(Difficulty _difficulty) {
+		this._difficulty = _difficulty;
 	}
 
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.residentevil.redbg.Difficulty;
 import com.residentevil.redbg.GameMode;
 import com.residentevil.redbg.cards.*;
 
@@ -22,17 +23,11 @@ public class Shared {
 	
 	public static GameMode historyMode;
 	
-	/*public static List<Card> mapActionToCard(List<Action> actionList){
-		List<Card> tempCardList = new ArrayList<Card>();
-		for (Action action : actionList) {
-			Card tempCard = new Card();
-			tempCard.set_code(action.get_code());
-			tempCard.set_name(action.get_name());
-			tempCard.set_type(action.get_type());
-		}
-		return tempCardList;
-	}*/
+	public static List<Difficulty> _difficultiesList;
 	
+	/*
+	 * This method return the object of the specific class that represents a card
+	 */
 	public static Object getCardObject(String cardType, Card card) {
 		switch (cardType) {
 		case "Action":
@@ -91,6 +86,7 @@ public class Shared {
 		return card;
 	}
 	
+	//Genera una lista de números aleatoriamente del 1 a la cantidad máxima asignada en el parámetro charsCount
 	public static List<Integer> generateRandomNumbersList(int charsCount){
 
 		List<Integer> arrayList = new ArrayList<Integer>();
@@ -123,6 +119,10 @@ public class Shared {
 		return arrayList;
 	}
 	
+	/*
+	 *  Asigna aleatoriamente un valor a las cartas para que sean utilizadas con el identificador Integer y permite ordenar
+	 *  las cartas de acuerdo al valor asignado.
+	 */
 	public static Map<Integer, Card> shuffleCards(List<Card> _cardList, boolean _sortCards) {
 
 		int charsCount = _cardList.size();

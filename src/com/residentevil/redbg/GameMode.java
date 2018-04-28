@@ -11,9 +11,11 @@ import com.residentevil.redbg.cards.Token;
 import com.residentevil.redbg.cards.Weapon;
 
 //Define las reglas
+//Esta clase debería ser el escenario
 public class GameMode {
 	
 	private String _name;
+	private String _scenarioName;
 	private List<MainCharacter> _allowedCharacters;
 	private List<Action> _allowedActions;
 	private List<Ammo> _allowedAmmo;
@@ -23,15 +25,13 @@ public class GameMode {
 	private List<Item> _allowedItems;
 	
 	public GameMode() {
-		/*this._name = "";
-		this._allowedCharacters = new ArrayList<MainCharacter>();
-		this._assignOrder = new HashMap<>();*/
 	}
 	
-	public GameMode(String _name, List<MainCharacter> _allowedCharacters, List<Action> _allowedActions,
+	public GameMode(String _name, String _scenarioName, List<MainCharacter> _allowedCharacters, List<Action> _allowedActions,
 			List<Ammo> _allowedAmmo, List<Infected> _allowedInfecteds, List<Token> _allowedTokens,
 			List<Weapon> _allowedWeapons, List<Item> _allowedItems) {
 		this._name = _name;
+		this._scenarioName = _scenarioName;
 		this._allowedCharacters = _allowedCharacters;
 		this._allowedActions = _allowedActions;
 		this._allowedAmmo = _allowedAmmo;
@@ -41,13 +41,20 @@ public class GameMode {
 		this._allowedItems = _allowedItems;
 	}
 
-
 	public String get_name() {
 		return _name;
 	}
 
 	public void set_name(String _name) {
 		this._name = _name;
+	}
+
+	public String get_scenarioName() {
+		return _scenarioName;
+	}
+
+	public void set_scenarioName(String _scenarioName) {
+		this._scenarioName = _scenarioName;
 	}
 
 	public List<MainCharacter> get_allowedCharacters() {
@@ -105,48 +112,5 @@ public class GameMode {
 	public void set_allowedItems(List<Item> _allowedItems) {
 		this._allowedItems = _allowedItems;
 	}
-
-/*
-	public void sortCharacters() {
-		
-		int charsCount = this.get_allowedCharacters().size();
-		List<Integer> arrayList = new ArrayList<Integer>();
-		
-		boolean finish = false, numberFree = false;
-		int assignedNumers = 0;
-		
-		Random r = new Random();
-		int result = r.nextInt(charsCount) + 1;
-		
-		arrayList.add(result);
-		assignedNumers++;
-		
-		do {
-			result = r.nextInt(charsCount) + 1;
-			for (Integer number : arrayList) {
-				if(result == number) {
-					numberFree = false;
-					break;
-				}else {
-					numberFree = true;
-				}
-			}
-			if(numberFree) {
-				arrayList.add(result);
-				assignedNumers++;
-			}
-		}while(!finish && assignedNumers < charsCount);
-		
-		this._assignCharactersOrder = new HashMap<>();
-		
-		for (int i = 0; i < charsCount; i++) {
-			this._assignCharactersOrder.put(arrayList.get(i), this.get_allowedCharacters().get(i));
-		}
-
-		//this._assignOrder.forEach((k, v) -> System.out.println("Key: " + k + " Value: " + v.get_name()));
-		
-	}
-*/
-
 
 }

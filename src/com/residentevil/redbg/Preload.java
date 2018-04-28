@@ -3,11 +3,15 @@ package com.residentevil.redbg;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.residentevil.mockups.gamemodes.HistoryNovice;
 import com.residentevil.redbg.cards.*;
 import com.residentievil.utilities.Shared;
 
 public class Preload {
 
+	/*
+	 * 
+	 */
 	public static void initializeCards() {
 		Shared.mainCharacterList = charsMockup();
 		Shared.actionList = actionsMockup();
@@ -18,6 +22,7 @@ public class Preload {
 		Shared.weaponList = weaponMockup();
 
 		Shared.historyMode = historyModeMockup();
+		Shared._difficultiesList = difficultiesMockup(); 
 	}
 
 	private static List<MainCharacter> charsMockup() {
@@ -295,9 +300,28 @@ public class Preload {
 	}
 
 	private static GameMode historyModeMockup() {
-		GameMode mode = new GameMode("HISTORY MODE", charsMockup(), actionsMockup(), ammoMockup(), infectedMockup(),
-				tokenMockup(), weaponMockup(), itemMockup());
+		HistoryNovice hn = new HistoryNovice();
+		
+		GameMode mode = new GameMode("HISTORY MODE", "NOVICE PLAYER", charsMockup(), hn.actions(), ammoMockup(), infectedMockup(),
+				tokenMockup(), hn.weapons(), itemMockup());
 		return mode;
-
 	}
+
+	private static List<Difficulty> difficultiesMockup() {
+		
+		List<Difficulty> difficultiesList = new ArrayList<Difficulty>();
+		
+		Difficulty 	easy = new Difficulty("EASY", -10, -10, 0, false, true),
+					normal = new Difficulty("NORMAL", 0, 0, 1, false, true),
+					hard = new Difficulty("HARD", +10, +10, 2, false, true),
+					professional = new Difficulty("HARD", +10, +10, 2, true, false);
+					
+		difficultiesList.add(easy);
+		difficultiesList.add(normal);
+		difficultiesList.add(hard);
+		difficultiesList.add(professional);
+		
+		return difficultiesList;
+	}
+	
 }

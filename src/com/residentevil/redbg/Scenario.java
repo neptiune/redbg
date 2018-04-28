@@ -9,6 +9,7 @@ import com.residentevil.redbg.cards.MainCharacter;
 import com.residentievil.utilities.Constants;
 import com.residentievil.utilities.Shared;
 
+//Esta clase debería ser el modo de juego
 public class Scenario {
 	private Map<Integer, Player> _activePlayers;
 	private Map<Integer, Player> _activePlayersMirror;
